@@ -1,7 +1,12 @@
+import hvacService from "../../public/hvac-services.jpg";
+import PageImage from "../../components/page-image/PageImage";
+import ServiceList from "../../components/services/ServiceList";
+
 const Services = () => {
   return (
     <div className="services">
-      <h1>Services</h1>
+      <PageImage image={hvacService} title={"WHAT WE OFFER"} />
+      <ServiceList />
     </div>
   );
 };

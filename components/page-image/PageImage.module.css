@@ -1,0 +1,40 @@
+.pageImage {
+  height: 300px;
+  margin-bottom: 100px;
+  position: relative;
+  width: 100%;
+  z-index: -100;
+}
+
+.image {
+  z-index: 0;
+}
+
+.titleContainer {
+  bottom: 0;
+  display: flex;
+  right: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-bottom: 100px solid var(--background);
+  border-left: 100px solid transparent;
+}
+
+.title {
+  align-items: center;
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  width: 400px;
+}
+
+.title h1 {
+  color: var(--white);
+  font-weight: 500;
+}

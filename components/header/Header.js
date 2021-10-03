@@ -9,6 +9,7 @@ const Header = () => {
   const [displayMenu, setDisplayMenu] = useState(false);
   return (
     <div className={classes.header}>
+      <div className={classes.logo} />
       <div className={classes.nav}>
         <FontAwesomeIcon
           className={classes.icon}

@@ -1,6 +1,8 @@
 .header {
   display: flex;
+  justify-content: space-between;
   padding: 15px 35px;
+  z-index: 100;
 }
 
 .header ul {
@@ -28,7 +30,22 @@
   }
   #dropdownShown {
     background-color: var(--white);
+    border-top: 1px solid var(--grey);
+    border-left: 1px solid var(--grey);
+    border-right: 1px solid var(--grey);
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
     display: block;
     position: absolute;
+    right: 10px;
+    top: 51px;
+  }
+  #dropdownShown li {
+    margin-right: 0px;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  #dropdownHidden {
+    max-height: 0;
   }
 }
