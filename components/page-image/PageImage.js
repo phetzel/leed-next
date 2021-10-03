@@ -5,7 +5,7 @@ const PageImage = ({ image, title }) => {
   return (
     <div className={classes.pageImage}>
       <Image
-        alt="Hvac at work"
+        alt={title}
         className="image"
         layout="fill"
         objectFit="cover"
@@ -14,7 +14,7 @@ const PageImage = ({ image, title }) => {
       <div className={classes.titleContainer}>
         <div className={classes.triangle} />
         <div className={classes.title}>
-          <h1>{title}</h1>
+          <h1>{title.toUpperCase()}</h1>
         </div>
       </div>
     </div>

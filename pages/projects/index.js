@@ -1,14 +1,10 @@
-import Link from "next/link";
+import hvacService from "../../public/hvac-projects.jpg";
+import PageImage from "../../components/page-image/PageImage";
 
 const Projects = () => {
   return (
     <div className="projects">
-      <h1>Projects</h1>
-      <ul>
-        <li>
-          <Link href="/projects/1">1</Link>
-        </li>
-      </ul>
+      <PageImage image={hvacService} title={"Previous work"} />
     </div>
   );
 };

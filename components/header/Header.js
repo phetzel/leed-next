@@ -5,8 +5,9 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import classes from "./Header.module.css";
 
-const Header = () => {
+const Header = ({ onScroll }) => {
   const [displayMenu, setDisplayMenu] = useState(false);
+
   return (
     <div className={classes.header}>
       <div className={classes.logo} />
@@ -30,6 +31,7 @@ const Header = () => {
           <li>
             <Link href="/about">About</Link>
           </li>
+          <li onClick={onScroll}>Contact</li>
         </ul>
       </div>
     </div>
