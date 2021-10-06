@@ -10,4 +10,33 @@ const ProjectDetail = () => {
   );
 };
 
+export const getStaticPaths = () => {
+  return {
+    fallback: true,
+    paths: [
+      {
+        params: {
+          id: "1",
+        },
+      },
+      {
+        params: {
+          id: "2",
+        },
+      },
+    ],
+  };
+};
+
+// static site generation
+// run on build never ran on machines
+export const getStaticProps = async (context) => {
+  const { id } = context.params;
+  // fetch data
+  return {
+    props: {},
+    revalidate: 10,
+  };
+};
+
 export default ProjectDetail;

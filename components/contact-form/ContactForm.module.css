@@ -1,0 +1,42 @@
+.contactForm {
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  width: "100%";
+}
+.contactForm form {
+  border: 10px solid var(--grey);
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  width: 500px;
+}
+.contactFormRow {
+  display: flex;
+  justify-content: space-between;
+}
+.ContactFormInput {
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.ContactFormInput p {
+  color: var(--grey);
+  margin-bottom: 20px;
+}
+.ContactFormInput input,
+.ContactFormInput select {
+  background-color: var(--white);
+  border: none;
+  height: 30px;
+}
+.ContactFormInput textarea {
+  resize: none;
+}
+.ContactFormInput input:focus,
+.ContactFormInput select:focus,
+.ContactFormInput textarea:focus {
+  outline: none;
+}

@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
       behavior: "smooth",
     });
   };
+
   return (
     <div className="app">
       <Header onScroll={scrollToRef} />

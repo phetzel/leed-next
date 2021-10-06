@@ -1,0 +1,39 @@
+.aboutDetails {
+  display: flex;
+  justify-content: space-around;
+  padding: 0px 150px;
+  margin-bottom: 100px;
+}
+
+.aboutDetails div {
+  max-width: 300px;
+}
+.aboutDetails h3 {
+  color: var(--background);
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.aboutDetails p {
+  color: var(--background);
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+
+.divider {
+  height: 320px;
+  border: 1px solid var(--grey);
+}
+
+.teamIndex {
+  padding: 0px 150px;
+  margin-bottom: 100px;
+}
+
+.teamIndex h3 {
+  color: var(--background);
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
