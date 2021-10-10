@@ -4,7 +4,7 @@ const ProjectDetail = () => {
   const router = useRouter();
   const { id } = router.query;
   return (
-    <div classNmae="project-detail">
+    <div classNmae="page">
       <h1>{id}</h1>
     </div>
   );

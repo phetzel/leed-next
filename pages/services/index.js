@@ -4,7 +4,7 @@ import ServiceList from "../../components/services/ServiceList";
 
 const Services = () => {
   return (
-    <div className="services">
+    <div className="page">
       <PageImage image={hvacService} title={"What we offer"} />
       <ServiceList />
     </div>

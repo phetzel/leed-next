@@ -3,7 +3,7 @@ import PageImage from "../../components/page-image/PageImage";
 
 const Projects = () => {
   return (
-    <div>
+    <div className="page">
       <PageImage image={hvacService} title={"Previous work"} />
     </div>
   );

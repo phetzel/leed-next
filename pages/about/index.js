@@ -5,7 +5,7 @@ import TeamIndex from "../../components/about/TeamIndex";
 
 const About = () => {
   return (
-    <div className="about">
+    <div className="page">
       <PageImage image={hvacAbout} title={"Our team"} />
       <AboutDetails />
       <TeamIndex />

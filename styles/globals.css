@@ -60,3 +60,8 @@ img {
   -ms-user-select: none;
   user-select: none;
 }
+
+/* Global */
+.page {
+  min-height: 100vh;
+}
