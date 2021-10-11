@@ -13,10 +13,22 @@
   padding: 5px 0;
 }
 
+.adminSection {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
   width: 400px;
+}
+
+.form h2,
+.list h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
 }
 
 .form label {
@@ -27,6 +39,18 @@
 
 .form input {
   margin-top: 10px;
+}
+
+.form textarea {
+  height: 100px;
+  margin-top: 10px;
+  resize: none;
+  width: 400px;
+}
+
+.formButtonContainer {
+  display: flex;
+  justify-content: space-between;
 }
 
 .formButton {
@@ -41,4 +65,36 @@
 
 .formButton p {
   color: var(--white);
+}
+
+.list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  max-height: 600px;
+}
+
+.listDivider {
+  border: 1px solid var(--background);
+  margin: 5px 0;
+  width: 250px;
+}
+
+.listItem {
+  cursor: pointer;
+  margin-bottom: 20px;
+  width: 200px;
+}
+
+.listItem h6 {
+  font-size: 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.listItemPic {
+  height: 200px;
+  position: relative;
+  width: 200px;
 }

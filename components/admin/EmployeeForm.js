@@ -1,14 +1,32 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import classes from "./Admin.module.css";
-import { createEmployee, updateEmployee } from "../../api/employee";
+import {
+  createEmployee,
+  updateEmployee,
+  deleteEmployee,
+} from "../../api/employee";
 
-const EmployeeForm = () => {
+const EmployeeForm = ({ employee, setEmployee }) => {
   const [name, setName] = useState();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
-  const [image, setImage] = useState();
+  const [image, setImage] = useState("");
+  const fileRef = useRef();
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    if (employee) {
+      setName(employee.name);
+      setTitle(employee.title);
+      setDescription(employee.description);
+    } else {
+      setName("");
+      setTitle("");
+      setDescription("");
+      fileRef.current.value = "";
+    }
+  }, [employee]);
+
+  const handleAdd = (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("employee[name]", name);
@@ -16,12 +34,28 @@ const EmployeeForm = () => {
     formData.append("employee[description]", description);
     formData.append("employee[image]", image);
 
-    createEmployee(formData);
+    createEmployee(formData).then((res) => setEmployee(res.data));
+  };
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    if (name != employee.name) formData.append("employee[name]", name);
+    if (title != employee.title) formData.append("employee[title]", title);
+    if (description != employee.description)
+      formData.append("employee[description]", description);
+    if (image) formData.append("employee[image]", image);
+
+    updateEmployee(formData, employee.id).then((res) => setEmployee(res.data));
+  };
+
+  const handleDelete = () => {
+    deleteEmployee(employee.id).then(() => setEmployee());
   };
 
   return (
     <form className={classes.form}>
-      <h2>Add Employee</h2>
+      <h2>{employee ? `Edit ${employee.name}` : "Add Employee"}</h2>
       <label>
         Name
         <input onChange={(e) => setName(e.target.value)} value={name} />
@@ -42,11 +76,26 @@ const EmployeeForm = () => {
         <input
           type="file"
           onChange={(e) => setImage(e.currentTarget.files[0])}
+          ref={fileRef}
         />
       </label>
-      <div className={classes.formButton} onClick={handleSubmit}>
-        <p>Add</p>
-      </div>
+      {employee ? (
+        <div className={classes.formButtonContainer}>
+          <div className={classes.formButton} onClick={handleUpdate}>
+            <p>Edit</p>
+          </div>
+          <div className={classes.formButton} onClick={handleDelete}>
+            <p>Delete</p>
+          </div>
+          <div className={classes.formButton} onClick={() => setEmployee()}>
+            <p>Cancel</p>
+          </div>
+        </div>
+      ) : (
+        <div className={classes.formButton} onClick={handleAdd}>
+          <p>Add</p>
+        </div>
+      )}
     </form>
   );
 };

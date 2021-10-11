@@ -37,3 +37,13 @@
   font-weight: 700;
   margin-bottom: 20px;
 }
+
+.teamIndexItem {
+  display: flex;
+}
+
+.teamIndexItemPic {
+  height: 200px;
+  position: relative;
+  width: 200px;
+}
