@@ -18,6 +18,7 @@ const EmployeeForm = ({ employee, setEmployee }) => {
       setName(employee.name);
       setTitle(employee.title);
       setDescription(employee.description);
+      fileRef.current.value = "";
     } else {
       setName("");
       setTitle("");

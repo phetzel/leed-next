@@ -1,27 +1,40 @@
 import { useEffect, useState } from "react";
 import classes from "./Admin.module.css";
 
+import { createService, updateService, deleteService } from "../../api/service";
+
 const ProjectForm = ({ project }) => {
   const [name, setName] = useState();
-  //   const [title, setTitle] = useState();
-  //   const [description, setDescription] = useState();
+  const [location, setLocation] = useState();
+  const [services, setServices] = useState();
+  const [description, setDescription] = useState();
   const [image, setImage] = useState();
+  const fileRef = useRef();
 
   useEffect(() => {
     if (project) {
       setName(project.name);
+      setLocation(project.location);
+      setServices(project.setServices);
+      setDescription(project.description);
+      fileRef.current.value = "";
     } else {
-      setName();
+      setName("");
+      setLocation("");
+      setServices("");
+      setDescription("");
+      fileRef.current.value = "";
     }
   }, [project]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("employee[name]", name);
-    // formData.append("employee[title]", title);
-    // formData.append("employee[description]", description);
-    formData.append("employee[image]", image);
+    formData.append("project[name]", name);
+    formData.append("project[location]", location);
+    formData.append("project[services]", services);
+    formData.append("project[description]", description);
+    formData.append("project[image]", image);
   };
 
   return (
@@ -31,14 +44,18 @@ const ProjectForm = ({ project }) => {
         Name
         <input onChange={(e) => setName(e)} value={name} />
       </label>
-      {/* <label>
-        Title
-        <input onChange={(e) => setTitle(e)} value={title} />
+      <label>
+        Location
+        <input onChange={(e) => setLocation(e)} value={location} />
+      </label>
+      <label>
+        Services
+        <input onChange={(e) => setServices(e)} value={services} />
       </label>
       <label>
         Description
         <textarea onChange={(e) => setDescription(e)} value={description} />
-      </label> */}
+      </label>
       <label>
         Photo
         <input
