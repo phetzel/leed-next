@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Select from "react-select";
 
 import classes from "./ContactForm.module.css";
 import ContactFormInput from "./ContactFormInput";

@@ -1,10 +1,12 @@
 import hvacService from "../../public/hvac-projects.jpg";
 import PageImage from "../../components/page-image/PageImage";
+import ProjectList from "../../components/projects/ProjectList";
 
 const Projects = () => {
   return (
     <div className="page">
       <PageImage image={hvacService} title={"Previous work"} />
+      <ProjectList />
     </div>
   );
 };

@@ -1,0 +1,56 @@
+.projectList {
+  margin-top: 100px;
+}
+
+.projectIndexItem {
+  cursor: pointer;
+  width: 300px;
+}
+
+.projectIndexItemImage {
+  height: 300px;
+  position: relative;
+  width: 300px;
+  z-index: -100;
+}
+
+.projectIndexItemText {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 300px;
+  z-index: 100;
+}
+
+/* Modal */
+
+.modalBackground {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 200;
+}
+
+.modalChild {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modalImage {
+  max-width: 80vw;
+  max-height: 80vh;
+  height: 500px;
+  width: 600px;
+  position: relative;
+}

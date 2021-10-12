@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import classes from "./Admin.module.css";
 
-import { createService, updateService, deleteService } from "../../api/service";
+import { createProject, updateProject, deleteProject } from "../../api/project";
 
-const ProjectForm = ({ project }) => {
+const ProjectForm = ({ project, setProject }) => {
   const [name, setName] = useState();
   const [location, setLocation] = useState();
   const [services, setServices] = useState();
@@ -15,7 +15,7 @@ const ProjectForm = ({ project }) => {
     if (project) {
       setName(project.name);
       setLocation(project.location);
-      setServices(project.setServices);
+      setServices(project.services);
       setDescription(project.description);
       fileRef.current.value = "";
     } else {
@@ -27,7 +27,7 @@ const ProjectForm = ({ project }) => {
     }
   }, [project]);
 
-  const handleSubmit = (e) => {
+  const handleAdd = (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("project[name]", name);
@@ -35,6 +35,24 @@ const ProjectForm = ({ project }) => {
     formData.append("project[services]", services);
     formData.append("project[description]", description);
     formData.append("project[image]", image);
+
+    createProject(formData).then((res) => setProject(res.data));
+  };
+
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    if (name != project.name) formData.append("project[name]", name);
+    if (title != project.title) formData.append("project[title]", title);
+    if (description != project.description)
+      formData.append("project[description]", description);
+    if (image) formData.append("project[image]", image);
+
+    updateProject(formData, project.id).then((res) => setProject(res.data));
+  };
+
+  const handleDelete = () => {
+    deleteProject(project.id).then(() => setProject());
   };
 
   return (
@@ -42,30 +60,48 @@ const ProjectForm = ({ project }) => {
       <h2>{project ? `Edit ${project.name}` : "Add Project"}</h2>
       <label>
         Name
-        <input onChange={(e) => setName(e)} value={name} />
+        <input onChange={(e) => setName(e.target.value)} value={name} />
       </label>
       <label>
         Location
-        <input onChange={(e) => setLocation(e)} value={location} />
+        <input onChange={(e) => setLocation(e.target.value)} value={location} />
       </label>
       <label>
         Services
-        <input onChange={(e) => setServices(e)} value={services} />
+        <input onChange={(e) => setServices(e.target.value)} value={services} />
       </label>
       <label>
         Description
-        <textarea onChange={(e) => setDescription(e)} value={description} />
+        <textarea
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
+        />
       </label>
       <label>
         Photo
         <input
           type="file"
           onChange={(e) => setImage(e.currentTarget.files[0])}
+          ref={fileRef}
         />
       </label>
-      <div className={classes.formButton} onClick={handleSubmit}>
-        <p>{project ? "Edit" : "Add"}</p>
-      </div>
+      {project ? (
+        <div className={classes.formButtonContainer}>
+          <div className={classes.formButton} onClick={handleUpdate}>
+            <p>Edit</p>
+          </div>
+          <div className={classes.formButton} onClick={handleDelete}>
+            <p>Delete</p>
+          </div>
+          <div className={classes.formButton} onClick={() => setProject()}>
+            <p>Cancel</p>
+          </div>
+        </div>
+      ) : (
+        <div className={classes.formButton} onClick={handleAdd}>
+          <p>Add</p>
+        </div>
+      )}
     </form>
   );
 };

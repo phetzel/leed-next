@@ -9,7 +9,6 @@ const TeamIndex = () => {
 
   useEffect(() => {
     getEmployees();
-    // fetchEmployees.then((res) => console.log(res));
   }, []);
 
   const getEmployees = async () => {
@@ -18,12 +17,14 @@ const TeamIndex = () => {
   };
 
   return (
-    <div className={classes.teamIndex}>
-      <h3>Meet our team</h3>
-      {team &&
-        team.map((employee) => (
-          <TeamIndexItem key={employee.id} employee={employee} />
-        ))}
+    <div className={classes.teamIndexContainer}>
+      <div className={classes.teamIndex}>
+        <h3>Meet our team</h3>
+        {team &&
+          team.map((employee) => (
+            <TeamIndexItem key={employee.id} employee={employee} />
+          ))}
+      </div>
     </div>
   );
 };

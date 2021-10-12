@@ -1,10 +1,13 @@
-.contactForm {
+.contactContainer {
   background-color: var(--background);
   display: flex;
   justify-content: center;
   padding-bottom: 100px;
   padding-top: 100px;
   width: "100%";
+}
+
+.contactForm {
 }
 .contactForm form {
   border: 10px solid var(--grey);
@@ -34,9 +37,39 @@
 }
 .ContactFormInput textarea {
   resize: none;
+  height: 100px;
 }
 .ContactFormInput input:focus,
 .ContactFormInput select:focus,
 .ContactFormInput textarea:focus {
   outline: none;
+}
+
+.contactInfo {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding-left: 100px;
+}
+
+.contactInfo h1 {
+  color: var(--grey);
+  font-size: 4rem;
+  margin-bottom: 30px;
+}
+
+.contactDetails {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+.contactDetails h3 {
+  color: var(--grey);
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+.contactDetails p {
+  color: var(--grey);
+  margin-bottom: 8px;
 }

@@ -13,7 +13,9 @@ const TeamIndexItem = ({ employee }) => {
         />
       </div>
       <div className={classes.teamIndexItemText}>
-        <h2>{employee.title}</h2>
+        <h2>
+          {employee.name} - {employee.title}
+        </h2>
         <p>{employee.description}</p>
       </div>
     </div>
