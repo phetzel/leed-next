@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import classes from "./Project.module.css";
 import { fetchProjects } from "../../api/project";
 import Modal from "./Modal";
+import Loading from "../loading/Loading";
 import ProjectListItem from "./ProjectListItem";
 
 const ProjectList = () => {
@@ -16,6 +17,8 @@ const ProjectList = () => {
     const { data } = await fetchProjects();
     setProjects(data);
   };
+
+  if (!projects) return <Loading />;
 
   return (
     <div className={classes.projectList}>
