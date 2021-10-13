@@ -1,16 +1,26 @@
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import classes from "./Header.module.css";
+import logo from "../../public/logo.jpg";
 
 const Header = ({ onScroll }) => {
   const [displayMenu, setDisplayMenu] = useState(false);
 
   return (
     <div className={classes.header}>
-      <div className={classes.logo} />
+      <div className={classes.logo}>
+        <Image
+          alt="Logo"
+          className="image"
+          layout="fill"
+          objectFit="cover"
+          src={logo}
+        />
+      </div>
       <div className={classes.nav}>
         <FontAwesomeIcon
           className={classes.icon}

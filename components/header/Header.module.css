@@ -1,8 +1,15 @@
 .header {
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  padding: 15px 35px;
+  padding: 15px 65px;
   z-index: 100;
+}
+
+.logo {
+  height: 41.3333333333px;
+  position: relative;
+  width: 100px;
 }
 
 .header ul {
@@ -11,9 +18,13 @@
 
 .header ul li {
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 500;
-  margin-right: 30px;
+  margin-left: 30px;
+}
+
+.header ul li:hover {
+  color: var(--logo);
 }
 
 .icon {
@@ -22,7 +33,7 @@
   font-size: 1.3rem;
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 900px) {
   .icon {
     display: inline;
   }

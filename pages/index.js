@@ -1,7 +1,9 @@
+import HomeUpper from "../components/home/HomeUpper";
+
 const Home = () => {
   return (
     <div className="page">
-      <h1>Home</h1>
+      <HomeUpper />
     </div>
   );
 };
