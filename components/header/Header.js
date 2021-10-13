@@ -16,7 +16,6 @@ const Header = ({ onScroll }) => {
           className={classes.icon}
           icon={displayMenu ? faTimes : faBars}
           onClick={() => setDisplayMenu(displayMenu ? false : true)}
-          size={"100px"}
         />
         <ul id={displayMenu ? classes.dropdownShown : classes.dropdownHidden}>
           <li>

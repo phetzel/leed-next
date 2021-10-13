@@ -60,6 +60,7 @@
   display: flex;
   justify-content: center;
   height: 40px;
+  margin-top: 40px;
   width: 100px;
 }
 
@@ -97,4 +98,31 @@
   height: 200px;
   position: relative;
   width: 200px;
+}
+
+.login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.error {
+  background-color: #e81a1a;
+  border-radius: 5px;
+  padding: 8px;
+  position: absolute;
+  top: 205px;
+}
+
+.error p {
+  color: white;
+  font-size: 0.6rem;
+  text-align: center;
 }

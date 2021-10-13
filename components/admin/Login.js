@@ -1,9 +1,12 @@
 import { useState } from "react";
 import classes from "./Admin.module.css";
+import { login } from "../../api/user";
+import Error from "./Error";
 
-const Login = () => {
-  const [name, setName] = useState();
-  const [password, setPassword] = useState();
+const Login = ({ setUser }) => {
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -11,12 +14,19 @@ const Login = () => {
     formData.append("user[name]", name);
     formData.append("user[password]", password);
 
-    createEmployee(formData);
+    login(formData).then((res) => {
+      if (res.status === 200) {
+        setError();
+        setUser(res.data);
+      } else {
+        setError(res.data[0]);
+      }
+    });
   };
 
   return (
-    <form className={classes.form}>
-      <h2>Add Employee</h2>
+    <form className={classes.login}>
+      <h2>Login</h2>
       <label>
         Name
         <input onChange={(e) => setName(e.target.value)} value={name} />
@@ -27,8 +37,10 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           type="password"
           value={password}
+          setUser
         />
       </label>
+      {error && <Error error={error} />}
       <div className={classes.formButton} onClick={handleSubmit}>
         <p>Login</p>
       </div>
