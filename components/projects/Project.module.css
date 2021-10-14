@@ -15,12 +15,30 @@
 }
 
 .projectIndexItemText {
-  align-items: center;
+  background-color: rgba(20, 154, 69, 0.8);
+  color: var(--white);
   display: flex;
   flex-direction: column;
+  height: 300px;
+  overflow: scroll;
+  padding: 20px;
   position: absolute;
   width: 300px;
   z-index: 100;
+}
+
+.projectIndexItemText div {
+  margin-bottom: 20px;
+}
+
+.projectIndexItemText h6 {
+  font-size: 1.2rem;
+}
+
+.projectIndexItemText p {
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+  margin-top: 5px;
 }
 
 /* Modal */

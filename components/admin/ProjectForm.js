@@ -3,7 +3,7 @@ import classes from "./Admin.module.css";
 
 import { createProject, updateProject, deleteProject } from "../../api/project";
 
-const ProjectForm = ({ project, setProject }) => {
+const ProjectForm = ({ project, setProject, setLoading }) => {
   const [name, setName] = useState();
   const [location, setLocation] = useState();
   const [services, setServices] = useState();
@@ -29,6 +29,7 @@ const ProjectForm = ({ project, setProject }) => {
 
   const handleAdd = (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData();
     formData.append("project[name]", name);
     formData.append("project[location]", location);
@@ -36,11 +37,15 @@ const ProjectForm = ({ project, setProject }) => {
     formData.append("project[description]", description);
     formData.append("project[image]", image);
 
-    createProject(formData).then((res) => setProject(res.data));
+    createProject(formData).then((res) => {
+      setProject(res.data);
+      setLoading(false);
+    });
   };
 
   const handleUpdate = (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData();
     if (name != project.name) formData.append("project[name]", name);
     if (title != project.title) formData.append("project[title]", title);
@@ -48,7 +53,10 @@ const ProjectForm = ({ project, setProject }) => {
       formData.append("project[description]", description);
     if (image) formData.append("project[image]", image);
 
-    updateProject(formData, project.id).then((res) => setProject(res.data));
+    updateProject(formData, project.id).then((res) => {
+      setProject(res.data);
+      setLoading(false);
+    });
   };
 
   const handleDelete = () => {

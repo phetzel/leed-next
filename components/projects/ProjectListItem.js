@@ -21,12 +21,18 @@ const ProjectListItem = ({ project, setModal }) => {
         />
         {display && (
           <div className={classes.projectIndexItemText}>
-            <h6>Location</h6>
-            <p>{project.location}</p>
-            <h6>Services</h6>
-            <p>{project.services}</p>
-            <h6>Description</h6>
-            <p>{project.description}</p>
+            <div>
+              <h6>Location</h6>
+              <p>{project.location}</p>
+            </div>
+            <div>
+              <h6>Services</h6>
+              <p>{project.services}</p>
+            </div>
+            <div>
+              <h6>Description</h6>
+              <p>{project.description}</p>
+            </div>
           </div>
         )}
       </div>

@@ -6,7 +6,7 @@ import {
   deleteEmployee,
 } from "../../api/employee";
 
-const EmployeeForm = ({ employee, setEmployee }) => {
+const EmployeeForm = ({ employee, setEmployee, setLoading }) => {
   const [name, setName] = useState();
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
@@ -29,17 +29,22 @@ const EmployeeForm = ({ employee, setEmployee }) => {
 
   const handleAdd = (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData();
     formData.append("employee[name]", name);
     formData.append("employee[title]", title);
     formData.append("employee[description]", description);
     formData.append("employee[image]", image);
 
-    createEmployee(formData).then((res) => setEmployee(res.data));
+    createEmployee(formData).then((res) => {
+      setEmployee(res.data);
+      setLoading(false);
+    });
   };
 
   const handleUpdate = (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData();
     if (name != employee.name) formData.append("employee[name]", name);
     if (title != employee.title) formData.append("employee[title]", title);
@@ -47,7 +52,10 @@ const EmployeeForm = ({ employee, setEmployee }) => {
       formData.append("employee[description]", description);
     if (image) formData.append("employee[image]", image);
 
-    updateEmployee(formData, employee.id).then((res) => setEmployee(res.data));
+    updateEmployee(formData, employee.id).then((res) => {
+      setEmployee(res.data);
+      setLoading(false);
+    });
   };
 
   const handleDelete = () => {
