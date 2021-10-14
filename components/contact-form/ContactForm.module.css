@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-around;
   padding: 100px 30px;
+  position: relative;
   width: "100%";
 }
 
@@ -44,6 +45,24 @@
 .ContactFormInput select:focus,
 .ContactFormInput textarea:focus {
   outline: none;
+}
+
+.formButton {
+  align-items: center;
+  background: linear-gradient(var(--logo), var(--offLogo));
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  height: 40px;
+  width: 100px;
+}
+
+.formButton:hover {
+  background: linear-gradient(var(--offLogo), var(--logo));
+}
+
+.formButton p {
+  color: var(--background);
 }
 
 .contactInfo {

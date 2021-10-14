@@ -3,7 +3,7 @@ import { useState } from "react";
 import classes from "./ContactForm.module.css";
 import ContactFormInput from "./ContactFormInput";
 
-const ContactForm = ({ reference }) => {
+const ContactForm = ({ reference, setLoading }) => {
   const [fName, setFName] = useState();
   const [fNameError, setFNameError] = useState();
   const [lName, setLname] = useState();
@@ -20,7 +20,6 @@ const ContactForm = ({ reference }) => {
   const [stateError, setStateError] = useState();
   const [zip, setZip] = useState();
   const [zipError, setZipError] = useState();
-  const [callBack, setCallBack] = useState();
   const [message, setMessage] = useState();
 
   const usStates = [
@@ -96,6 +95,23 @@ const ContactForm = ({ reference }) => {
     console.log(e);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const obj = {
+      fName,
+      lName,
+      email,
+      phoneNumber,
+      address,
+      city,
+      state,
+      zip,
+      message,
+    };
+
+    setLoading(true);
+  };
+
   return (
     <div className={classes.contactForm} ref={reference}>
       <form>
@@ -166,6 +182,9 @@ const ContactForm = ({ reference }) => {
         <div className={classes.ContactFormInput}>
           <p>Message</p>
           <textarea value={message}></textarea>
+        </div>
+        <div className={classes.formButton} onClick={handleSubmit}>
+          <p>Contact</p>
         </div>
       </form>
     </div>

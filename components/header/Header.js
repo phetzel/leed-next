@@ -13,13 +13,17 @@ const Header = ({ onScroll }) => {
   return (
     <div className={classes.header}>
       <div className={classes.logo}>
-        <Image
-          alt="Logo"
-          className="image"
-          layout="fill"
-          objectFit="cover"
-          src={logo}
-        />
+        <Link href="/" passHref={true}>
+          <div style={{ cursor: "pointer" }}>
+            <Image
+              alt="Logo"
+              className="image"
+              layout="fill"
+              objectFit="cover"
+              src={logo}
+            />
+          </div>
+        </Link>
       </div>
       <div className={classes.nav}>
         <FontAwesomeIcon

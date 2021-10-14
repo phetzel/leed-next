@@ -1,0 +1,7 @@
+.loading {
+  align-items: center;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+}
