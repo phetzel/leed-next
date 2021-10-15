@@ -4,7 +4,7 @@ import classes from "./Project.module.css";
 
 const ProjectListItem = ({ project, setModal }) => {
   const [display, setDisplay] = useState(false);
-  console.log(display);
+
   return (
     <div
       className={classes.projectIndexItem}
@@ -35,6 +35,15 @@ const ProjectListItem = ({ project, setModal }) => {
             </div>
           </div>
         )}
+      </div>
+      <div
+        className={
+          display
+            ? classes.projectIndexItemNameHighlight
+            : classes.projectIndexItemName
+        }
+      >
+        <p>{project.name}</p>
       </div>
     </div>
   );

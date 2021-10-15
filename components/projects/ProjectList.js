@@ -13,25 +13,46 @@ const ProjectList = () => {
     getProjects();
   }, []);
 
+  useEffect(() => {
+    console.log(window.innerWidth);
+  }, []);
+
   const getProjects = async () => {
     const { data } = await fetchProjects();
+
     setProjects(data);
   };
 
-  if (!projects) return <Loading />;
+  if (!projects)
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          position: "relative",
+          width: "100%",
+        }}
+      >
+        <Loading />
+      </div>
+    );
 
   return (
-    <div className={classes.projectList}>
-      {modalImages && <Modal images={modalImages} func={setModalImages} />}
-      <h3>Past Projects</h3>
-      {projects &&
-        projects.map((project) => (
-          <ProjectListItem
-            key={project.id}
-            project={project}
-            setModal={setModalImages}
-          />
-        ))}
+    <div className={classes.projectListContainer}>
+      <div className={classes.projectList}>
+        {modalImages && <Modal images={modalImages} func={setModalImages} />}
+        <h3>Past Projects</h3>
+        <ul>
+          {projects &&
+            projects.map((project) => (
+              <ProjectListItem
+                key={project.id}
+                project={project}
+                setModal={setModalImages}
+              />
+            ))}
+        </ul>
+      </div>
     </div>
   );
 };
