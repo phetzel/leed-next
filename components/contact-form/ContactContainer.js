@@ -6,9 +6,9 @@ import Loading from "../loading/Loading";
 const ContactContainer = ({ reference }) => {
   const [loading, setLoading] = useState(false);
   return (
-    <div className={classes.contactContainer}>
+    <div className={classes.contactContainer} ref={reference}>
       {loading && <Loading />}
-      <ContactForm reference={reference} setLoading={setLoading} />
+      <ContactForm setLoading={setLoading} />
       <ContactInfo />
     </div>
   );

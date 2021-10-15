@@ -3,7 +3,7 @@ import { useState } from "react";
 import classes from "./ContactForm.module.css";
 import ContactFormInput from "./ContactFormInput";
 
-const ContactForm = ({ reference, setLoading }) => {
+const ContactForm = ({ setLoading }) => {
   const [fName, setFName] = useState();
   const [fNameError, setFNameError] = useState();
   const [lName, setLname] = useState();
@@ -113,7 +113,7 @@ const ContactForm = ({ reference, setLoading }) => {
   };
 
   return (
-    <div className={classes.contactForm} ref={reference}>
+    <div className={classes.contactForm}>
       <form>
         <div className={classes.contactFormRow}>
           <ContactFormInput

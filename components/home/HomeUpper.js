@@ -27,7 +27,13 @@ const HomeUpper = () => {
         </div>
       </div>
       <div className={classes.HomeUpperRight}>
-        <Image alt="Project Image" className="image" layout="fill" src={main} />
+        <Image
+          alt="Project Image"
+          className="image"
+          layout="fill"
+          objectFit="contain"
+          src={main}
+        />
       </div>
     </div>
   );
