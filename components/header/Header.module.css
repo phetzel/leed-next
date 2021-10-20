@@ -49,11 +49,11 @@
     border-bottom-left-radius: 15px;
     display: block;
     position: absolute;
-    right: 10px;
-    top: 51px;
+    right: 50px;
+    top: 71px;
   }
   #dropdownShown li {
-    margin-right: 0px;
+    margin-left: 0px;
     padding: 10px 20px;
     text-align: center;
   }
