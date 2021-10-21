@@ -69,3 +69,6 @@ img {
 
 /* Slidedown */
 @import "../node_modules/react-slidedown/lib/slidedown.css";
+
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");

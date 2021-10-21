@@ -12,6 +12,7 @@ const PageImage = ({ image, title }) => {
             className="image"
             layout="fill"
             objectFit="cover"
+            priority={true}
             src={image}
           />
         </div>

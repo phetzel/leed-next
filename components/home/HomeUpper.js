@@ -31,6 +31,7 @@ const HomeUpper = () => {
           alt="Project Image"
           className={classes.img}
           layout="fill"
+          priority={true}
           src={main}
         />
       </div>

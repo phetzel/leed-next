@@ -9,6 +9,8 @@ const TeamIndexItem = ({ employee }) => {
           alt="Employee Image"
           className="image"
           layout="fill"
+          objectFit="contain"
+          priority={true}
           src={employee.photoUrl}
         />
       </div>
