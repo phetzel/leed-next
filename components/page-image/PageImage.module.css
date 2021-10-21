@@ -2,8 +2,20 @@
   height: 300px;
   margin-bottom: 100px;
   position: relative;
-  width: 100%;
+  /* width: 100%; */
   z-index: -100;
+}
+.fixed {
+  /* position: fixed; */
+  /* height: 20000px; */
+  z-index: -100;
+}
+
+.imageContainer {
+  /* top: 0; */
+  position: absolute;
+  height: 300px;
+  width: 100%;
 }
 
 .image {

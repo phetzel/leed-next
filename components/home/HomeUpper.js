@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import main from "../../public/main.jpg";
+import main from "../../public/main.png";
 import classes from "./Home.module.css";
 
 const HomeUpper = () => {
@@ -29,9 +29,8 @@ const HomeUpper = () => {
       <div className={classes.HomeUpperRight}>
         <Image
           alt="Project Image"
-          className="image"
+          className={classes.img}
           layout="fill"
-          objectFit="contain"
           src={main}
         />
       </div>

@@ -1,4 +1,4 @@
-import hvacService from "../../public/hvac-services.jpg";
+import hvacService from "../../public/hvac-services.png";
 import PageImage from "../../components/page-image/PageImage";
 import ServiceList from "../../components/services/ServiceList";
 
