@@ -40,10 +40,10 @@ const Login = ({ setUser }) => {
           setUser
         />
       </label>
-      {error && <Error error={error} />}
       <div className={classes.formButton} onClick={handleSubmit}>
         <p>Login</p>
       </div>
+      {error && <Error error={error} />}
     </form>
   );
 };

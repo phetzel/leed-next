@@ -9,6 +9,8 @@ const ListItem = ({ item, set }) => {
           alt={item.name}
           className="image"
           layout="fill"
+          priority={true}
+          objectFit="contain"
           src={item.photoUrl}
         />
       </div>

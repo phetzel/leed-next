@@ -29,6 +29,7 @@ const ProjectList = () => {
         style={{
           display: "flex",
           justifyContent: "center",
+          paddingTop: "20px",
           position: "relative",
           width: "100%",
         }}

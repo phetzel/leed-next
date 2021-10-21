@@ -100,11 +100,14 @@
   width: 200px;
 }
 
+/* login */
+
 .login {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100vh;
 }
 
 .login label {
@@ -113,11 +116,16 @@
   margin-top: 20px;
 }
 
+.login input {
+  margin-top: 10px;
+}
+
 .error {
   background-color: #e81a1a;
   border-radius: 5px;
   padding: 8px;
-  position: absolute;
+  margin-top: 10px;
+  /* position: absolute; */
   top: 205px;
 }
 
