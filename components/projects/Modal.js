@@ -12,6 +12,7 @@ const Modal = ({ images, func }) => {
             alt="Project Image"
             className="image"
             layout="fill"
+            objectFit="contain"
             src={images.photoUrl}
           />
         </div>
