@@ -18,7 +18,7 @@
   background-color: black;
   border: 10px solid var(--logo);
   padding: 50px;
-  max-width: 600px;
+  width: 600px;
 }
 
 .HomeUpperDetails h1 {
@@ -74,6 +74,14 @@
 
   .HomeUpperDetails {
     width: "100%";
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .HomeUpperDetails {
+    background-color: var(--background);
+    border: none;
+    width: 100%;
   }
 }
 
